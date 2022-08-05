@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show blogs</title>
     <link rel="stylesheet" href="../css/styles.css" />
+    <script src="../javascript/allBlogsPage/allBlogs.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -30,11 +31,5 @@
     <div class="container">
       <div id="divs-blog"></div>
     </div>
-
-    <script>
-      let divsBlog = document.getElementById("divs-blog");
-
-      divsBlog.innerHTML += JSON.parse(sessionStorage.getItem("blogsArray"));
-    </script>
   </body>
 </html>
