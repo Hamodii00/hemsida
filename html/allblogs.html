@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show blogs</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="index.html" class="blogger"><h1>blogger</h1></a>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="hamburger-menu">
+        <div class="line line-1"></div>
+        <div class="line line-2"></div>
+        <div class="line line-3"></div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html">Write a blog</a></li>
+        <li><a href="search.html">Search blogs</a></li>
+        <li><a href="allblogs.html" id="allblogs">Show blogs</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div id="divs-blog"></div>
+    </div>
+
+    <script>
+      let divsBlog = document.getElementById("divs-blog");
+
+      divsBlog.innerHTML += JSON.parse(sessionStorage.getItem("blogsArray"));
+    </script>
+  </body>
+</html>
