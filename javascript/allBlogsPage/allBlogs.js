@@ -15,14 +15,16 @@ if (!blogs) {
     // Skapa en div som innehåller headline(h3), author(h6), blogText(p).
     // Värdena på dessa HTML-taggar ska komma från objektet som vi går igenom i loopen.
     // Lägg till den nya diven i divsBlog.
-    const container = document.createElement("div");
+    const container = document.createElement("div" );
     container.setAttribute("id", blogs[i]);
+    
     const headline = document.createElement("h3");
     const author = document.createElement("h6");
     const blogText = document.createElement("p");
     const deleteBtn = document.createElement("button");
+    deleteBtn.setAttribute("class", "deleteBtn")
     const editBtn = document.createElement("button");
-    editBtn.setAttribute("id", blogs[i]);
+    editBtn.setAttribute("class", "editBtn")
 
     blogText.innerText = blogs[i].blogText;
     author.innerText = blogs[i].author;
@@ -33,9 +35,38 @@ if (!blogs) {
     divsBlog.append(container);
 
     deleteBtn.addEventListener("click", () => {
+      
       container.remove();
-      blogs.splice(i, i);
+      blogs.splice(i, 1);
       sessionStorage.setItem("blogs", JSON.stringify(blogs));
     });
+    editBtn.addEventListener("click", () => {    
+    author.contentEditable = "true";
+    headline.contentEditable = "true";
+    blogText.contentEditable = "true";
+    deleteBtn.style.display ="none";
+    editBtn.style.display = "none";
+    const saveBtn = document.createElement("button");
+    saveBtn.innerText = "Save";
+    saveBtn.setAttribute("class", "saveBtn")
+    container.append(saveBtn);
+    
+    saveBtn.addEventListener("click", () => {
+    author.contentEditable = "false";
+    headline.contentEditable = "false";
+    blogText.contentEditable = "false";
+    //testade att spara värdena på nytt här under
+    author = author.innerText;
+    headline = headline.innerText;
+    blogText = blogText.innerText;
+    
+    deleteBtn.style.display ="block";
+    editBtn.style.display = "block";
+    saveBtn.style.display = "none"
+    sessionStorage.setItem("blogs", JSON.stringify(blogs));
+    })
+    
+    });
+    
   }
 }

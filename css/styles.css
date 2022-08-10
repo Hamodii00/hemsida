@@ -223,11 +223,11 @@ textarea {
 #divs-blog div h3, #divs-blog div h6, #divs-blog div p {
   margin-left: 5px;
 }
-#divs-blog div #deleteBtn {
+#divs-blog div .deleteBtn {
   width: 60px;
   margin-left: 10px;
 }
-#divs-blog div #editBtn {
+#divs-blog div .editBtn {
   width: 60px;
   margin: -41px 0 0 100px;
 }/*# sourceMappingURL=styles.css.map */
